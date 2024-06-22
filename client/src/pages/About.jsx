@@ -6,10 +6,14 @@ import { FaNode } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { SiDjango } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section
+    <motion.section
+      initial={{ width: 0 }}
+      animate={{ width: "100%", x: 0, scale: 1 }}
+      exit={{ x: window.innerWidth }}
       style={{ backgroundColor: "#34353a" }}
       id="about"
       className="min-h-screen flex justify-center"
@@ -95,7 +99,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

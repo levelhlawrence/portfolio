@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import { useState } from "react";
 
@@ -13,11 +13,12 @@ import Portfolio from "./pages/Protfolio";
 // localhost:5173
 const App = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const location = useLocation();
 
   return (
-    <>
+    <div id="app">
       <Navbar toggleMenu={toggleMenu} setToggleMenu={setToggleMenu} />
-      <Routes>
+      <Routes location={location} key={location.pathname}>
         <Route
           exact
           path="/"
@@ -30,7 +31,7 @@ const App = () => {
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 

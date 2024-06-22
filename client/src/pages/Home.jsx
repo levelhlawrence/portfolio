@@ -1,5 +1,6 @@
 import Selfie from "../images/selfPortrait2.svg";
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
 
 const Home = ({ toggleMenu, setToggleMenu }) => {
   const menuHandler = () => {
@@ -7,8 +8,12 @@ const Home = ({ toggleMenu, setToggleMenu }) => {
     setToggleMenu(!toggleMenu);
   };
   return (
-    <section
+    <motion.section
+      initial={{ width: 0 }}
+      animate={{ width: "100%", x: 0, scale: 1 }}
+      exit={{ x: window.innerWidth }}
       style={{ backgroundColor: "#34353a" }}
+      transition={{ staggerChildren: 0.4 }}
       id="home"
       className="min-h-screen flex justify-center"
     >
@@ -18,7 +23,14 @@ const Home = ({ toggleMenu, setToggleMenu }) => {
           className="flex flex-col-reverse justify-between items-center text-white"
         >
           <div className="text-center mt-20 mx-8">
-            <h1 className="text-2xl font-thin">Hello, I'm </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-2xl font-thin"
+            >
+              Hello, I'm
+            </motion.h1>
             <TypeAnimation
               sequence={[
                 "Level Lawrence",
@@ -34,32 +46,44 @@ const Home = ({ toggleMenu, setToggleMenu }) => {
               className="text-blue-500 text-4xl font-bold"
             />
 
-            <p className="text-2xl font-thin pt-4">
+            <motion.p
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-2xl font-thin pt-4"
+            >
               I specialize in solving business problems with creative solutions.
-            </p>
-            <div>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               <button
                 className="text-xl mr-4 text-white bg-blue-500 border-blue-500 hover:bg-transparent hover:border-white border-4 py-2 px-4 rounded-lg mt-8 transition-all hover:text-2xl duration-300"
                 onClick={() => menuHandler()}
               >
-                <a href="portfolio">My Work</a>
+                <a href="/portfolio">My Work</a>
               </button>
               <button
                 className="text-xl text-blue-500 border-blue-500 hover:bg-blue-500 hover:text-white border-4 py-2 px-4 rounded-lg mt-8 transition-all hover:text-2xl duration-30"
                 onClick={() => menuHandler()}
               >
-                <a href="contact">Contact Me</a>
+                <a href="/contact">Contact Me</a>
               </button>
-            </div>
+            </motion.div>
           </div>
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
             className="brightness-75 w-1/2 bg-blue-500 rounded-full"
             src={Selfie}
             alt="Level Lawrence Selfie"
           />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

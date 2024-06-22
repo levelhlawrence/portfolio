@@ -4,23 +4,33 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import Logo from "../images/Logo2.png";
 // react
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 // routes
 import Routes from "./utils/Routes";
 // framer
 import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 
 const Navbar = ({ toggleMenu, setToggleMenu }) => {
   const menuHandler = () => {
     // toggling menu and icons
     setToggleMenu(!toggleMenu);
-    console.log(toggleMenu);
   };
+
+  useEffect(() => {
+    if (window.screen.width > 767) {
+      setToggleMenu(true);
+    } else {
+      setToggleMenu(false);
+      console.log(toggleMenu);
+      console.log(window.screen.width);
+    }
+  }, [window.screen.width > 767]);
 
   return (
     <nav
       className="flex justify-center w-full py-4"
-      style={{ backgroundColor: "#34353a" }}
+      style={{ backgroundColor: "#252529" }}
     >
       <div className="container flex justify-between items-center mx-8">
         <div>
@@ -65,8 +75,9 @@ const Navbar = ({ toggleMenu, setToggleMenu }) => {
             transition={{ duration: 0.4, type: "spring" }}
             animate={{ x: 0, opacity: 1 }}
             id="nav-menu"
-            className="bg-blue-500 rounded absolute right-2 top-14 flex-col bottom-0 w-60 z-10 text-center "
+            className="bg-blue-500 md:bg-transparent md:w-fit md:relative flex md:flex-row rounded absolute right-2 md:right-0 top-14 flex-col bottom-0 md:top-0 w-60 z-10 text-center "
           >
+            {/* Mobile Menu */}
             {Routes.map((route, index) => {
               return (
                 <motion.li
@@ -75,19 +86,18 @@ const Navbar = ({ toggleMenu, setToggleMenu }) => {
                   transition={{
                     delay: index / 5,
                   }}
-                  className="text-white mb-12 md:mb-0 mt-2 md:mt-0 md:border-none text-lg border-b mx-10 md:leading-0 md:mx-0 leading-10 "
-                  key={index}
+                  className="text-white mb-12 md:ml-6 md:mr-0 md:my-0 mt-2 md:border-none text-lg border-b mx-10 md:leading-0 leading-10"
+                  key={uuidv4()}
                 >
                   {route.name === "Contact" ? (
-                    <button
-                      onClick={() => menuHandler()}
-                      className="border-4 px-4 rounded-lg mb-4 md:mb:0 font-bold "
-                    >
+                    <button className="border-4 px-4 rounded-lg mb-4 md:m-0 font-bold">
                       <a href={route.link}>Contact</a>
                     </button>
                   ) : (
                     <Link
-                      onClick={() => menuHandler()}
+                      onClick={
+                        window.screen.width < 767 ? () => menuHandler() : null
+                      }
                       to={`${
                         route.link === "home" ? (route.link = "") : route.link
                       }`}
