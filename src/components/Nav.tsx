@@ -1,13 +1,12 @@
 "use client";
-
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import profilePic from "../images/profile_pic.jpeg";
 import { siteNavLinks, jobLinks } from "./Links";
 import Link from "next/link";
 
 export default function Nav() {
-  const router = useRouter();
+  const pathname = usePathname();
   return (
     <nav className="flex items-center justify-center pt-10">
       {/* profile image */}
@@ -28,22 +27,24 @@ export default function Nav() {
           return (
             <button
               key={index}
-              className=" mt-2 first-of-type:border-l-0 border-l border-black capitalize hover:bg-gray-100"
+              className=" mt-2 first-of-type:border-l-0 border-l border-black capitalize hover:font-semibold px-4 first-of-type:pl-0"
             >
-              <Link className="mx-2 px-2" href={link.link}>
-                {link.name}
-              </Link>
+              <Link href={link.link}>{link.name}</Link>
             </button>
           );
         })}
         {/* Internal Links */}
         <div>
-          <p className="text-xs mt-2  text-gray-600">Site Navigation</p>
+          <p className="text-xs mt-2 text-gray-600">Site Navigation</p>
           {siteNavLinks.map((link, index) => {
             return (
               <button
                 key={index + 1232}
-                className=" mt-2 border-black py-2  rounded-md capitalize hover:bg-gray-400"
+                className={`${
+                  pathname === link.link
+                    ? "mt-4 capitalize font-bold bg-gray-400 px-4 py-1 mr-2 rounded-lg"
+                    : "mt-4 capitalize hover:bg-gray-200 px-4 py-1 mr-2 rounded-lg"
+                } `}
               >
                 <Link href={link.link}>{link.name}</Link>
               </button>
