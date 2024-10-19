@@ -8,9 +8,9 @@ import Link from "next/link";
 export default function Nav() {
   const pathname = usePathname();
   return (
-    <nav className="flex items-center justify-center pt-10">
+    <nav className="flex text-center items-center md:text-left justify-center flex-col md:flex-row pt-16">
       {/* profile image */}
-      <div id="nav-img" className="relative h-28 w-28">
+      <div id="nav-img" className="relative h-28 w-28 md:h-32 md:w-32 mb-6">
         <Image
           className="w-full h-full object-cover rounded-full "
           src={profilePic}
@@ -18,11 +18,11 @@ export default function Nav() {
         />
       </div>
       {/* nav header text */}
-      <div className="ml-10">
-        <h1 className="font-bold text-4xl mb-2">Level Lawrence</h1>
-        <h3 className="font-semibold">Full-Stack Developer Portfolio</h3>
+      <div className="md:ml-10">
+        <h1 className="font-bold text-4xl">Level Lawrence</h1>
+        <h3 className="font-semibold">Web Developer Portfolio</h3>
         {/* External Links */}
-        <p className="text-xs mt-2  text-gray-600">External Links</p>
+        <p className="text-xs mt-4  text-gray-600">External Links</p>
         {jobLinks.map((link, index) => {
           return (
             <button
@@ -55,4 +55,3 @@ export default function Nav() {
     </nav>
   );
 }
-// className="mx-2 px-2 font-bold"
