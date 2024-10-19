@@ -1,7 +1,7 @@
 export default function Page() {
   return (
     <section>
-      <h1>Blog Page</h1>
+      <h1 className="text-4xl font-bold">THIS IS VERCEL</h1>
     </section>
   );
 }
