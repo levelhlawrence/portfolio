@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function Nav() {
   const pathname = usePathname();
   return (
-    <nav className="flex text-center items-center md:text-left justify-center flex-col md:flex-row pt-16">
+    <nav className="flex text-center items-center md:text-left justify-center flex-col md:flex-row pt-12">
       {/* profile image */}
       <div id="nav-img" className="relative h-28 w-28 md:h-32 md:w-32 mb-6">
         <Image
