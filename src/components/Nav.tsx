@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import profilePic from "../images/profile_pic.jpeg";
+import profilePic from "../assets/images/profile_pic.jpeg";
 import { siteNavLinks, jobLinks } from "./Links";
 import Link from "next/link";
 
@@ -15,6 +15,7 @@ export default function Nav() {
           className="w-full h-full object-cover rounded-full "
           src={profilePic}
           alt="profile"
+          width={200}
         />
       </div>
       {/* nav header text */}
