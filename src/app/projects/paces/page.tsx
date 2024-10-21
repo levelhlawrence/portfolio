@@ -12,7 +12,7 @@ export default function Page() {
   const adImages = [chefPic, chef2, workoutPic, health, adMain];
   return (
     <section className="flex justify-center items-center mt-8 px-6">
-      <div className=" max-w-3xl min-w-md w-full">
+      <div className=" text-center md:text-left max-w-3xl min-w-md w-full">
         <div>
           <Link
             href="https://retreat.pacesworldwide.com"
@@ -27,13 +27,16 @@ export default function Page() {
             Github Repo
           </Link>
         </div>
-        <h1 className="text-3xl font-bold mb-4 text-left">Paces Project</h1>
-        <div className="flex">
+        <h1 className="text-3xl font-bold mb-4 md:text-left text-center">
+          Paces Project
+        </h1>
+        {/* project scope area */}
+        <div className="flex flex-col md:flex-row mb-10 items-center md:items-start">
           <div>
-            <h4 className="font-bold text-gray-600 text-xl mt-10">
+            <h4 className="font-bold text-gray-600 text-xl mt-10 ">
               Project Scope
             </h4>
-            <p className="mr-8">
+            <p className="md:mr-8 mb-6 md:mb-0">
               This project was created to attract clients to an offshore
               retreat. The design was the result of detailed meetings with the
               client over a few weeks. We collaborated in figma to stay on task
@@ -48,15 +51,13 @@ export default function Page() {
           designed each using Adobe PhotoShop and Affinity Designer. Each final
           design was approved before release.
         </p>
-        <div className="flex gap-6 flex-wrap mt-8 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-8 mb-10">
           {adImages.map((img) => (
             <Image
               key={uuidv4()}
               src={img}
               alt="ads"
-              width={200}
-              height={200}
-              className="rounded-lg"
+              className="w-full h-full rounded-lg"
             />
           ))}
         </div>
