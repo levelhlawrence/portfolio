@@ -12,48 +12,41 @@ export default function Page() {
   const adImages = [chefPic, chef2, workoutPic, health, adMain];
   return (
     <section className="flex justify-center items-center mt-8 px-6">
-      <div className="m max-w-3xl min-w-md w-full">
+      <div className=" max-w-3xl min-w-md w-full">
         <div>
           <Link
             href="https://retreat.pacesworldwide.com"
-            className="bg-sky-600 text-xs px-4 py-1 rounded-lg mr-4 hover:cursor-pointer"
+            className="bg-red-500 text-gray-50 text-xs px-2 py-1 font-semibold rounded mr-2 hover:cursor-pointer"
           >
             Project Site
           </Link>
           <Link
             href="https://github.com/levelhlawrence/pacesresort.git"
-            className="bg-gray-300 text-xs px-4 py-1 rounded-lg hover:cursor-pointer"
+            className="bg-gray-300 text-xs px-2 font-semibold py-1 rounded hover:cursor-pointer"
           >
             Github Repo
           </Link>
         </div>
         <h1 className="text-3xl font-bold mb-4 text-left">Paces Project</h1>
-        <h4 className="font-bold text-gray-600 text-xl mt-10">Project Scope</h4>
         <div className="flex">
-          <p className="mr-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A labore
-            explicabo esse commodi praesentium non aspernatur beatae dignissimos
-            at perspiciatis ratione, dolores voluptatem nostrum! Minima, autem.
-            Ducimus sint, voluptatibus delectus eos illo rerum, odit
-            exercitationem deleniti voluptate labore praesentium eveniet! Veniam
-            molestiae voluptatibus est? Necessitatibus quis incidunt esse
-            pariatur? Cupiditate.
-          </p>
-
+          <div>
+            <h4 className="font-bold text-gray-600 text-xl mt-10">
+              Project Scope
+            </h4>
+            <p className="mr-8">
+              This project was created to attract clients to an offshore
+              retreat. The design was the result of detailed meetings with the
+              client over a few weeks. We collaborated in figma to stay on task
+              and adjusted design as needed.
+            </p>
+          </div>
           <Image src={projectImg} alt="projectImg" width={300} height={300} />
         </div>
-        <h4 className="font-bold text-xl mt-4 text-gray-600">Design</h4>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
-          perspiciatis reprehenderit culpa tenetur voluptas? Magnam quisquam
-          modi dicta quaerat sit.
-        </p>
-
         <h2 className="font-bold text-2xl mt-4">Ad Campaign</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et velit
-          dolore quos, nostrum cum vero similique. Vitae, doloremque. Fugit,
-          unde.
+          The client requested posters for each event listed on the itinerary. I
+          designed each using Adobe PhotoShop and Affinity Designer. Each final
+          design was approved before release.
         </p>
         <div className="flex gap-6 flex-wrap mt-8 mb-10">
           {adImages.map((img) => (
