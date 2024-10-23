@@ -2,11 +2,11 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import profilePic from "../assets/images/profile_pic.jpeg";
-import { siteNavLinks, jobLinks } from "./Links";
+import { siteNavLinks } from "./Links";
 import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 import { FaWindowClose } from "react-icons/fa";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -14,11 +14,17 @@ export default function Nav() {
 
   useEffect(() => {
     const menu = document.querySelector("#menu");
-    menu?.classList.add("hidden");
-    window.screen.width > 768
-      ? menu?.classList.add("hidden") & setIsMenu(true)
-      : menu?.classList.remove("hidden") & setIsMenu(false);
-  }, [window.screen.width]);
+
+    if (menu) {
+      if (window.screen.width > 768) {
+        menu.classList.add("hidden");
+        setIsMenu(true);
+      } else {
+        menu.classList.remove("hidden");
+        setIsMenu(false);
+      }
+    }
+  }, []);
 
   return (
     <nav className="flex justify-center pt-4 px-6 ">
