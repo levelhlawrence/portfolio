@@ -23,7 +23,7 @@ export default function Page() {
                 target="_blank"
               >
                 <IoMdMail />
-                <p className="text-sm md:text-md">levelhlawrenec@gmail.com</p>
+                <p className="text-sm md:text-md">levelhlawrence@gmail.com</p>
               </Link>
             </li>
             <li className="list-item underline mb-4">
