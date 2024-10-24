@@ -15,7 +15,7 @@ const jobLinks = [
   },
   {
     name: "resume",
-    link: "#",
+    link: "https://drive.google.com/file/d/1KYhLBlawF7hNMaTTEopJ_Nqgum2P_gJ9/view?usp=sharing",
     icon: <IoNewspaperSharp size={22} />,
   },
 ];
