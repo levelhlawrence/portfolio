@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <section className="flex justify-center mt-24 px-6 text-center md:text-left">
+    <section className="flex justify-center mt-24  mb-20 px-6 text-center md:text-left">
       <div className=" max-w-3xl">
         <h1 className="text-5xl font-bold mb-4 ">
           <span className="text-gray-500">About</span> Me
