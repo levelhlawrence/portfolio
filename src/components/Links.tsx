@@ -26,7 +26,6 @@ const siteNavLinks = [
     name: "home",
     link: "/",
   },
-
   {
     name: "projects",
     link: "/projects",

@@ -1,8 +1,10 @@
 export default function Page() {
   return (
-    <section className="flex justify-center px-6">
-      <div className=" max-w-3xl mt-32 mb-16 text-center md:text-left">
-        <h1 className="text-3xl font-bold mb-4 ">About Me</h1>
+    <section className="flex justify-center mt-8 px-6">
+      <div className=" max-w-3xl">
+        <h1 className="text-3xl font-bold mb-4 text-center md:text-left">
+          About Me
+        </h1>
         <p>
           Hello! I&apos;m a passionate full-stack developer with a knack for
           turning ideas into functional and user-friendly web applications. With
