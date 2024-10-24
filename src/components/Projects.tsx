@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Projects() {
-  console.log(ProjectData[0].title);
   return (
     <article className="mt-6">
       {ProjectData.map((myData, index) => {

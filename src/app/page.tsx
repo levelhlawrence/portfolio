@@ -1,32 +1,34 @@
+import Link from "next/link";
 export default function Page() {
   return (
-    <section className="flex justify-center mt-8 px-6">
-      <div className=" max-w-3xl">
-        <h1 className="text-3xl font-bold mb-4 text-center md:text-left">
-          About Me
+    <section className="flex justify-center items-center px-6 mt-24 ">
+      <div className="max-w-3xl mb-16 text-center md:text-left">
+        <p className="text-lg font-semibold text-gray-500 mb-4">
+          Hi, I'm Level Lawrence
+        </p>
+        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
+          Fullstack <span className="text-gray-500">Developer</span>
         </h1>
-        <p>
-          Hello! I&apos;m a passionate full-stack developer with a knack for
-          turning ideas into functional and user-friendly web applications. With
-          a background in the military, I&apos;ve honed discipline, teamwork,
-          and problem-solving skills that I bring to every project. By
-          incorporating business contextual graphics into my work, I create
-          visually engaging interfaces that effectively communicate complex
-          information and enhance user experience. With a strong foundation in
-          both front-end and back-end technologies like JavaScript, React,
-          Node.js, and Python, I enjoy the challenge of crafting seamless
-          digital experiences.
+        <p className="text-md font-medium text-gray-700 mt-4">
+          I turn creative ideas into seamless code, building beautiful,
+          functional solutions that make an impact. Let’s create something
+          extraordinary together.
         </p>
-        <p className="my-4">
-          Whether I&apos;m building interactive user interfaces or developing
-          robust server-side logic, I thrive on solving complex problems and
-          continually learning new technologies. When I&apos;m not coding, you
-          might find me exploring the latest tech trends, contributing to
-          open-source projects, or delving into a good book. I&apos;m always
-          eager to collaborate on exciting projects and bring innovative ideas
-          to life—feel free to explore my portfolio and reach out if you&apos;d
-          like to connect!
-        </p>
+
+        <div className="mt-8 flex justify-center items-center gap-4">
+          <Link
+            href="/contact"
+            className="bg-red-500 font-bold px-4 py-2 rounded-md"
+          >
+            Hire Me
+          </Link>
+          <Link
+            href="/projects"
+            className="bg-sky-500 text-white font-bold px-4 py-2 rounded-md"
+          >
+            See My Work
+          </Link>
+        </div>
       </div>
     </section>
   );

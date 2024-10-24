@@ -27,9 +27,12 @@ export default function Nav() {
   }, []);
 
   return (
-    <nav className="flex justify-center pt-4 px-6 ">
+    <nav className="flex justify-center pt-4 px-6 bg-white">
       <div className="flex justify-between items-center w-full max-w-3xl">
-        <Link href="/">
+        <Link
+          onClick={() => window.screen.width < 768 && setIsMenu(false)}
+          href="/"
+        >
           <Image
             className="w-14 filter-gray h-14 object-cover rounded-full "
             src={profilePic}
