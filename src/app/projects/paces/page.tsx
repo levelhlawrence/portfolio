@@ -57,6 +57,7 @@ export default function Page() {
               key={uuidv4()}
               src={img}
               alt="ads"
+              placeholder="blur"
               className="w-full h-full rounded-lg"
             />
           ))}

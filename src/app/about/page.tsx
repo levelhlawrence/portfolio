@@ -1,11 +1,33 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function Page() {
+  const aboutVariant = {
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4,
+      },
+    },
+    hidden: { opacity: 0 },
+  };
+
+  const aboutChild = {
+    show: { opacity: 1, y: 10, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 0 },
+  };
   return (
     <section className="flex justify-center mt-24  mb-20 px-6 text-center md:text-left">
-      <div className=" max-w-3xl">
-        <h1 className="text-5xl font-bold mb-4 ">
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={aboutVariant}
+        className=" max-w-3xl"
+      >
+        <motion.h1 variants={aboutChild} className="text-5xl font-bold mb-4 ">
           <span className="text-gray-500">About</span> Me
-        </h1>
-        <p>
+        </motion.h1>
+        <motion.p variants={aboutChild}>
           <span className="font-bold">Hello!</span> I&apos;m a passionate
           full-stack developer with a knack for turning ideas into functional
           and user-friendly web applications. With a background in the military,
@@ -21,8 +43,8 @@ export default function Page() {
           <span className="text-yellow-600 font-bold">Py</span>
           <span className="text-gray-500 font-bold">thon</span>, I enjoy the
           challenge of crafting seamless digital experiences.
-        </p>
-        <p className="my-4">
+        </motion.p>
+        <motion.p variants={aboutChild} className="my-4">
           Whether I&apos;m building interactive user interfaces or developing
           robust server-side logic, I thrive on solving complex problems and
           continually learning new technologies. When I&apos;m not coding, you
@@ -31,8 +53,8 @@ export default function Page() {
           eager to collaborate on exciting projects and bring innovative ideas
           to life—feel free to explore my portfolio and reach out if you&apos;d
           like to connect!
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 }

@@ -36,14 +36,16 @@ export default function Nav() {
 
   //animation logic
   const navMenuVariants = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 40 },
-    transition: { delay: 0.2 },
+    visible: {
+      x: 0,
+      transition: { type: "spring", stiffness: 200 },
+    },
+    hidden: { x: 40 },
   };
 
   return (
-    <motion.nav className="flex justify-center md:h-20 md:py-4 md:items-center pt-4 px-6 relative z-50">
-      <motion.div className="flex justify-between items-center w-full max-w-3xl">
+    <motion.nav className="flex justify-center md:max-h-20 md:py-4 md:items-center pt-4 px-6 relative z-50">
+      <motion.div className="flex justify-between md:max-h-20 items-center w-full max-w-3xl">
         <Link
           onClick={() => window.screen.width < 768 && setIsMenu(false)}
           href="/"
@@ -62,7 +64,7 @@ export default function Nav() {
             initial="hidden"
             animate="visible"
             variants={navMenuVariants}
-            className="absolute md:max-h-20 md:relative md:flex-row md:shadow-none md:text-lg bg-white md:justify-end shadow-lg md:bg-transparent rounded-tl-xl rounded-bl-xl shadow-gray-300 right-0 top-0 bottom-0 h-screen flex flex-col w-2/3 md:w-30 items-center text-3xl gap-28 md:gap-4"
+            className="absolute md:relative md:flex-row md:shadow-none md:text-lg bg-white md:justify-end shadow-lg md:bg-transparent rounded-tl-xl rounded-bl-xl shadow-black/30 right-0 top-0 min-h-screen flex flex-col w-2/3 md:w-30 items-center text-3xl gap-28 md:gap-4"
           >
             <FaWindowClose
               onClick={() => setIsMenu(!isMenu)}
