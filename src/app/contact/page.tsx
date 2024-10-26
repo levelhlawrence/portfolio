@@ -1,13 +1,29 @@
+"use client";
+
 import Link from "next/link";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { IoMdMail } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Page() {
+  const containerVariant = {
+    visible: { opacity: 1, x: -20 },
+    hidden: { opacity: 0, x: 0 },
+    transition: {
+      delay: 1,
+    },
+  };
+
   return (
-    <section className="flex justify-center px-6">
-      <div className=" max-w-3xl mt-32 mb-16 md:text-left">
+    <motion.section className="flex justify-center px-6">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={containerVariant}
+        className=" max-w-3xl mt-32 mb-16 md:text-left"
+      >
         <h1 className="text-5xl font-bold mb-4 ">
           THANKS <span className="text-gray-500">FOR REACHING OUT!</span>
         </h1>
@@ -63,7 +79,7 @@ export default function Page() {
             <IoNewspaperSharp />
           </Link>
         </button>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

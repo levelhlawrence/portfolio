@@ -7,28 +7,43 @@ import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
 import { FaWindowClose } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Nav() {
   const pathname = usePathname();
   const [isMenu, setIsMenu] = useState(false);
 
   useEffect(() => {
-    const menu = document.querySelector("#menu");
+    const handleResize = () => {
+      const menu = document.querySelector("#menu");
 
-    if (menu) {
-      if (window.screen.width > 768) {
-        menu.classList.add("hidden");
+      if (window.innerWidth > 768) {
         setIsMenu(true);
+        console.log(menu);
+        menu?.classList.add("hidden");
       } else {
-        menu.classList.remove("hidden");
         setIsMenu(false);
+        menu?.classList.remove("hidden");
+        console.log(menu);
       }
-    }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  //animation logic
+  const navMenuVariants = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 40 },
+    transition: { delay: 0.2 },
+  };
+
   return (
-    <nav className="flex justify-center pt-4 px-6 bg-white">
-      <div className="flex justify-between items-center w-full max-w-3xl">
+    <motion.nav className="flex justify-center md:h-20 md:py-4 md:items-center pt-4 px-6 relative z-50">
+      <motion.div className="flex justify-between items-center w-full max-w-3xl">
         <Link
           onClick={() => window.screen.width < 768 && setIsMenu(false)}
           href="/"
@@ -39,9 +54,16 @@ export default function Nav() {
             alt="profile"
           />
         </Link>
-        <IoMenu id="menu" onClick={() => setIsMenu(!isMenu)} size={50} />
+        <div id="menu">
+          <IoMenu onClick={() => setIsMenu(!isMenu)} size={50} />
+        </div>
         {isMenu && (
-          <ul className="absolute md:relative md:flex-row md:shadow-none md:text-lg bg-white md:justify-end shadow-lg md:bg-transparent rounded-xl shadow-gray-300 right-0 top-0 h-full flex flex-col w-2/3 md:w-30 items-center text-3xl gap-28 md:gap-4">
+          <motion.ul
+            initial="hidden"
+            animate="visible"
+            variants={navMenuVariants}
+            className="absolute md:relative md:flex-row md:shadow-none md:text-lg bg-white md:justify-end shadow-lg md:bg-transparent rounded-tl-xl rounded-bl-xl shadow-gray-300 right-0 top-0 bottom-0 h-screen flex flex-col w-2/3 md:w-30 items-center text-3xl gap-28 md:gap-4"
+          >
             <FaWindowClose
               onClick={() => setIsMenu(!isMenu)}
               size={30}
@@ -68,9 +90,9 @@ export default function Nav() {
                 </button>
               );
             })}
-          </ul>
+          </motion.ul>
         )}
-      </div>
-    </nav>
+      </motion.div>
+    </motion.nav>
   );
 }
