@@ -9,28 +9,38 @@ import { motion } from "framer-motion";
 
 export default function Page() {
   const containerVariant = {
-    visible: { opacity: 1, x: -20 },
-    hidden: { opacity: 0, x: 0 },
-    transition: {
-      delay: 1,
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4,
+      },
     },
+    hidden: { opacity: 0 },
+  };
+
+  const contactChild = {
+    show: { opacity: 1, y: 10, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 0 },
   };
 
   return (
     <motion.section className="flex justify-center px-6">
       <motion.div
         initial="hidden"
-        animate="visible"
+        animate="show"
         variants={containerVariant}
         className=" max-w-3xl mt-32 mb-16 md:text-left"
       >
-        <h1 className="text-5xl font-bold mb-4 ">
+        <motion.h1 variants={contactChild} className="text-5xl font-bold mb-4 ">
           THANKS <span className="text-gray-500">FOR REACHING OUT!</span>
-        </h1>
-        <p className="font-semibold mb-12 md:text-lg">
+        </motion.h1>
+        <motion.p
+          variants={contactChild}
+          className="font-semibold mb-12 md:text-lg"
+        >
           These are the many ways you can get in touch
-        </p>
-        <div>
+        </motion.p>
+        <motion.div variants={contactChild}>
           <ul className="mt-6">
             <li className="list-item underline mb-4">
               <Link
@@ -67,9 +77,12 @@ export default function Page() {
               </Link>
             </li>
           </ul>
-        </div>
+        </motion.div>
 
-        <button className="bg-sky-600 text-white px-4 py-2 rounded-lg font-semibold">
+        <motion.button
+          variants={contactChild}
+          className="bg-sky-600 text-white px-4 py-2 rounded-lg font-semibold"
+        >
           <Link
             href="https://drive.google.com/file/d/1S-09wIXIndkAFgI-AkxAVWmwF2xNv-jN/view?usp=sharing"
             target="_blank"
@@ -78,7 +91,7 @@ export default function Page() {
             Download Resume
             <IoNewspaperSharp />
           </Link>
-        </button>
+        </motion.button>
       </motion.div>
     </motion.section>
   );
