@@ -42,8 +42,8 @@ export default function Nav() {
   };
 
   return (
-    <motion.nav className="flex justify-center pt-4 px-6 bg-white relative z-50">
-      <motion.div className="flex  justify-between items-center w-full max-w-3xl">
+    <motion.nav className="flex justify-center md:h-20 md:py-4 md:items-center pt-4 px-6 relative z-50">
+      <motion.div className="flex justify-between items-center w-full max-w-3xl">
         <Link
           onClick={() => window.screen.width < 768 && setIsMenu(false)}
           href="/"
