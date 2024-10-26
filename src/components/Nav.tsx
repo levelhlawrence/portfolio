@@ -62,7 +62,7 @@ export default function Nav() {
             initial="hidden"
             animate="visible"
             variants={navMenuVariants}
-            className="absolute md:relative md:flex-row md:shadow-none md:text-lg bg-white md:justify-end shadow-lg md:bg-transparent rounded-tl-xl rounded-bl-xl shadow-gray-300 right-0 top-0 bottom-0 h-screen flex flex-col w-2/3 md:w-30 items-center text-3xl gap-28 md:gap-4"
+            className="absolute md:max-h-20 md:relative md:flex-row md:shadow-none md:text-lg bg-white md:justify-end shadow-lg md:bg-transparent rounded-tl-xl rounded-bl-xl shadow-gray-300 right-0 top-0 bottom-0 h-screen flex flex-col w-2/3 md:w-30 items-center text-3xl gap-28 md:gap-4"
           >
             <FaWindowClose
               onClick={() => setIsMenu(!isMenu)}
